@@ -7,12 +7,9 @@ lang: tr-tr
 ---
 
 Swift iOS ve OSX platformlarında geliştirme yapmak için Apple tarafından oluşturulan yeni bir programlama dilidir.  Objective - C ile beraber kullanılabilecek ve de hatalı kodlara karşı daha esnek bir yapı sunacak bir şekilde tasarlanmıştır. Swift 2014 yılında Apple'ın geliştirici konferansı WWDC de tanıtıldı. Xcode 6+'a dahil edilen LLVM derleyici ile geliştirildi.
-
-The official [Swift Programming Language](https://itunes.apple.com/us/book/swift-programming-language/id881256329) book from Apple is now available via iBooks.  
+ 
 
 Apple'ın resmi [Swift Programlama Dili](https://itunes.apple.com/us/book/swift-programming-language/id881256329) kitabı iBooks'ta yerini aldı.
-
-See also Apple's [getting started guide](https://developer.apple.com/library/prerelease/ios/referencelibrary/GettingStarted/RoadMapiOS/index.html), which has a complete tutorial on Swift.  
 
 Ayrıca Swift ile gelen tüm özellikleri görmek için Apple'ın [başlangıç kılavuzu](https://developer.apple.com/library/prerelease/ios/referencelibrary/GettingStarted/RoadMapiOS/index.html)na bakmanızda yarar var.
 
@@ -28,14 +25,14 @@ import UIKit
 
 
 //XCode işaretlemelerle kodunuzu bölümlere ayırmanızı ve sağ üstteki metot
- listesinde gruplama yapmanıza olanak sağlıyor
+//listesinde gruplama yapmanıza olanak sağlıyor
 // MARK: Bölüm işareti
 // TODO: Daha sonra yapılacak
 // FIXME: Bu kodu düzelt
 
  
-//Swift 2 de, println ve print metotları print komutunda birleştirildi. Print
- otomatik olarak yeni satır ekliyor.  
+//Swift 2 de, println ve print metotları print komutunda birleştirildi.
+//Print otomatik olarak yeni satır ekliyor.
 print("Merhaba dünya") // println print olarak kullanılıyor.
 print("Merhaba dünya", appendNewLine: false) // yeni bir satır eklemeden yazar.
 
@@ -78,7 +75,7 @@ print("Build degiskeni: \(buildDegiskeni)") // Build degeri: 7
 */
 var baziOptionalString: String? = "optional" // nil olabilir.
 // yukarıdakiyle aynı ama ? bir postfix (sona eklenir) operatördür. (kolay 
-okunabilir)
+//okunabilir)
 var someOptionalString2: Optional<String> = "optional"  
 
 
@@ -107,7 +104,8 @@ if let baziOpsiyonelSabitString = baziOptionalString {
 // Swift değişkenlerde herhangi bir tip saklanabilir.
 // AnyObject == id
 // Objective-C deki `id` den farklı olarak, AnyObject tüm değişkenlerle
- çalışabilir (Class, Int, struct, etc)
+//çalışabilir
+(Class, Int, struct, etc)
 var herhangiBirObject: AnyObject = 7
 herhangiBirObject = "Değer string olarak değişti, iyi bir yöntem değil ama mümkün"
 
@@ -237,14 +235,14 @@ func fiyatlariGetir() -> (Double, Double, Double) {
 let fiyatTuple = fiyatlariGetir()
 let fiyat = fiyatTuple.2 // 3.79
 // _ (alt çizgi) kullanımı Tuple degerlerini veya diğer değerleri görmezden
-gelir
+//gelir
 let (_, fiyat1, _) = fiyatTuple // fiyat1 == 3.69
 print(fiyat1 == fiyatTuple.1) // true
 print("Benzin fiyatı: \(fiyat)")
 
 // Çeşitli Argümanlar
 func ayarla(sayilar: Int...) {
-    // its an array
+    // bu bir dizidir
     let sayi = sayilar[0]
     let argumanSAyisi = sayilar.count
 }

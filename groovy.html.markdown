@@ -13,8 +13,8 @@ Groovy - A dynamic language for the Java platform [Read more here.](http://www.g
 /*
   Set yourself up:
 
-  1) Install GVM - http://gvmtool.net/
-  2) Install Groovy: gvm install groovy
+  1) Install SDKMAN - http://sdkman.io/
+  2) Install Groovy: sdk install groovy
   3) Start the groovy console by typing: groovyConsole
 
 */
@@ -99,7 +99,7 @@ technologies.sort()
 // To sort without mutating original, you can do:
 sortedTechnologies = technologies.sort( false )
 
-/*** Manipulating Lists ***/
+/*** Manipulating Lists ***/e
 
 //Replace all elements in the list
 Collections.replaceAll(technologies, 'Gradle', 'gradle')
@@ -200,6 +200,14 @@ def y = 10
 def x = (y > 1) ? "worked" : "failed"
 assert x == "worked"
 
+//Groovy supports 'The Elvis Operator' too!
+//Instead of using the ternary operator:
+
+displayName = user.name ? user.name : 'Anonymous'
+
+//We can write it:
+displayName = user.name ?: 'Anonymous'
+
 //For loop
 //Iterate over a range
 def x = 0
@@ -272,7 +280,7 @@ def clos = { print it }
 clos( "hi" )
 
 /*
-  Groovy can memorize closure results [1][2][3]
+  Groovy can memoize closure results [1][2][3]
 */
 def cl = {a, b ->
     sleep(3000) // simulate some time consuming processing
@@ -422,6 +430,3 @@ Join a [Groovy user group](http://www.groovy-lang.org/usergroups.html)
 [1] http://roshandawrani.wordpress.com/2010/10/18/groovy-new-feature-closures-can-now-memorize-their-results/
 [2] http://www.solutionsiq.com/resources/agileiq-blog/bid/72880/Programming-with-Groovy-Trampoline-and-Memoize
 [3] http://mrhaki.blogspot.mx/2011/05/groovy-goodness-cache-closure-results.html
-
-
-

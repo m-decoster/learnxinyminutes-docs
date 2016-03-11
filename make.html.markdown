@@ -11,7 +11,7 @@ target to the most recent version of the source. Famously written over a
 weekend by Stuart Feldman in 1976, it is still widely used (particularly
 on Unix) despite many competitors and criticisms.
 
-There are many varieties of make in existance, this article assumes that
+There are many varieties of make in existence, this article assumes that
 we are using GNU make which is the standard on Linux.
 
 ```make
@@ -31,7 +31,7 @@ we are using GNU make which is the standard on Linux.
 file0.txt:
 	echo "foo" > file0.txt
 	# Even comments in these 'recipe' sections get passed to the shell.
-	# Try `make file0.txt` or simply `make` - first rule is the default. 
+	# Try `make file0.txt` or simply `make` - first rule is the default.
 
 
 # This rule will only run if file0.txt is newer than file1.txt.
@@ -49,7 +49,7 @@ file2.txt file3.txt: file0.txt file1.txt
 	touch file2.txt
 	touch file3.txt
 
-# Make will complain about multiple recipes for the same rule. Empty 
+# Make will complain about multiple recipes for the same rule. Empty
 # recipes don't count though and can be used to add new dependencies.
 
 #-----------------------------------------------------------------------
@@ -115,7 +115,7 @@ small/%.png: %.svg
 %.png: %.ps
 	@echo this rule is not chosen if *.svg and *.ps are both present
 
-# make already has some pattern rules built-in. For instance, it knows 
+# make already has some pattern rules built-in. For instance, it knows
 # how to turn *.c files into *.o files.
 
 # Older makefiles might use suffix rules instead of pattern rules
@@ -145,11 +145,11 @@ echo:
 # In order of priority from highest to lowest:
 # 1: commandline arguments
 # 2: Makefile
-# 3: shell enviroment variables - make imports these automatically.
+# 3: shell environment variables - make imports these automatically.
 # 4: make has some predefined variables
 
 name4 ?= Jean
-# Only set the variable if enviroment variable is not already defined.
+# Only set the variable if environment variable is not already defined.
 
 override name5 = David
 # Stops commandline arguments from changing this variable.
@@ -185,7 +185,7 @@ var := hello
 var2 ::=  $(var) hello
 #:= and ::= are equivalent.
 
-# These variables are evaluated procedurely (in the order that they 
+# These variables are evaluated procedurely (in the order that they
 # appear), thus breaking with the rest of the language !
 
 # This doesn't work
@@ -234,10 +234,8 @@ bar = 'hello'
 endif
 ```
 
-
 ### More Resources
 
 + [gnu make documentation](https://www.gnu.org/software/make/manual/)
 + [software carpentry tutorial](http://swcarpentry.github.io/make-novice/)
 + learn C the hard way [ex2](http://c.learncodethehardway.org/book/ex2.html) [ex28](http://c.learncodethehardway.org/book/ex28.html)
-

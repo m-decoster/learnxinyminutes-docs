@@ -5,6 +5,7 @@ contributors:
     - ["Trismegiste", "https://github.com/Trismegiste"]
 translators:
     - ["SlaF", "https://github.com/SlaF"]
+    - ["Corpsee", "https://github.com/corpsee"]
 lang: ru-ru
 filename: learnphp-ru.php
 ---
@@ -14,8 +15,8 @@ filename: learnphp-ru.php
 ```php
 <?php // PHP код должен быть заключен в теги <?php
 
-// Если ваш файл содержит только PHP код, то можно
-// пропустить закрывающийся ?>
+// Если ваш файл содержит только PHP-код, то можно
+пропустить закрывающий ?>
 
 // А так начинаются комментарии
 
@@ -30,10 +31,10 @@ filename: learnphp-ru.php
 print('Hello '); // Напечатать "Hello " без перевода строки
 
 // () необязательно применять для print и echo
-echo "World\n"; // Печатать "World" и перейти на новую строку.
-// (все утверждения должны заканчиваться ;)
+echo "World\n"; // Напечатать "World" и перейти на новую строку.
+// (все утверждения должны заканчиваться точкой с запятой)
 
-// Любые символы за пределами закрывающегося тега выводятся автоматически:
+// Любые символы за пределами закрывающего тега выводятся автоматически:
 ?>
 Hello World Again!
 <?php
@@ -44,9 +45,9 @@ Hello World Again!
  */
 
 // Переменные начинаются с символа $.
-// Правильное имя переменной начинается с буквы или знака подчеркивания,
-// и может содержать любые цифры, буквы, или знаки подчеркивания.
-// Не рекомендуется использовать кирилические символы в именах (прим. пер.)
+// Правильное имя переменной начинается с буквы или символа подчеркивания,
+// за которым следует любое количество букв, цифр или символов подчеркивания.
+// Не рекомендуется использовать кириллические символы в именах (прим. пер.)
 
 // Логические значения нечувствительны к регистру
 $boolean = true;  // или TRUE или True
@@ -54,9 +55,9 @@ $boolean = false; // или FALSE или False
 
 // Целые числа
 $int1 = 12;   // => 12
-$int2 = -12;  // => -12-
+$int2 = -12;  // => -12
 $int3 = 012;  // => 10 (ведущий 0 обозначает восьмеричное число)
-$int4 = 0x0F; // => 15 (ведущие символы 0x означает шестнадцатеричное число)
+$int4 = 0x0F; // => 15 (ведущие символы 0x означают шестнадцатеричное число)
 
 // Дробные числа
 $float = 1.234;
@@ -86,7 +87,7 @@ $dbl_quotes = "This is a $sgl_quotes."; // => 'This is a $String.'
 $escaped   = "This contains a \t tab character.";
 $unescaped = 'This just contains a slash and a t: \t';
 
-// Заключайте переменные в фигурные скобки если это необходимо
+// Заключайте переменные в фигурные скобки, если это необходимо
 $money = "I have $${number} in the bank.";
 
 // Начиная с PHP 5.3, синтаксис nowdocs может использоваться для
@@ -105,6 +106,9 @@ END;
 // Строки соединяются при помощи .
 echo 'This string ' . 'is concatenated';
 
+// echo можно передавать строки как параметры
+echo 'Multiple', 'Parameters', 'Valid'; // печатает 'MultipleParametersValid'
+
 
 /********************************
  * Константы
@@ -113,20 +117,21 @@ echo 'This string ' . 'is concatenated';
 // Константа определяется при помощи define()
 // и никогда не может быть изменена во время выполнения программы!
 
-// Правильное имя константы начинается с буквы или символа подчеркивания,
-// и содержит любое колличество букв, цифр и знаков подчеркивания.
+// Правильное имя константы начинается с буквы или символа подчеркивания
+// и содержит любое колличество букв, цифр или символов подчеркивания.
 define("FOO", "something");
 
-// Доступ к константе возможен через прямое указание её имени
-echo 'This outputs '.FOO;
+// Доступ к константе возможен через прямое указание её имени без знака $
+echo FOO; // печатает 'something'
+echo 'This outputs ' . FOO; // печатает 'This ouputs something'
 
 /********************************
  * Массивы
  */
 
-// Все массивы в PHP - это ассоциативные массивы или хеши,
+// Все массивы в PHP - это ассоциативные массивы
 
-// Ассоциативные массивы, известные в других языках как хеш-карты.
+// Ассоциативные массивы, известные в других языках как HashMap.
 
 // Работает во всех версиях РHP
 $associative = array('One' => 1, 'Two' => 2, 'Three' => 3);
@@ -188,7 +193,7 @@ $b = '0';
 $c = '1';
 $d = '1';
 
-// Утверждение (assert) выдает предупреждение если аргумент не true
+// Утверждение (assert) выдает предупреждение, если его аргумент не true
 
 // Эти сравнения всегда будут истинными, даже если типы будут различаться
 assert($a == $b); // "равно"
@@ -199,13 +204,13 @@ assert($c > $b); // больше
 assert($a <= $b); // меньше или равно
 assert($c >= $d); // больше или равно
 
-// Следующие утверждения истинны если переменные имеют одинаковый тип.
+// Следующие утверждения истинны, если переменные имеют одинаковый тип.
 assert($c === $d);
 assert($a !== $d);
 assert(1 == '1');
 assert(1 !== '1');
 
-// Переменные могут изменять тип, в зависимости от их использования.
+// Переменные могут изменять тип в зависимости от их использования.
 $integer = 1;
 echo $integer + $integer; // => 2
 
@@ -235,7 +240,7 @@ $var = null; // Null
 $integer = 10;
 $boolen = settype($integer, "string") // теперь $integer имеет строковый тип
 
-// settype возвращает true - если преобразование удалось и false в противном случае
+// settype возвращает true, если преобразование удалось и false в противном случае
 
 /********************************
  * Управляющие структуры
@@ -283,35 +288,35 @@ This is displayed otherwise.
 // Использование switch.
 switch ($x) {
     case '0':
-        print 'Switch does type coercion';
-        break; // You must include a break, or you will fall through
-               // to cases 'two' and 'three'
+        print 'Switch использует неточное сравнение';
+        break; // вы должны использовать break, иначе PHP будет продолжать
+               // исполнять команды следующих секций case 'two' и 'three'
     case 'two':
     case 'three':
-        // Do something if $variable is either 'two' or 'three'
+        // делаем что-то, если $x == 'two' или $x == 'three'
         break;
     default:
-        // Do something by default
+        // делаем что-то по умолчанию
 }
 
 // Циклы: while, do...while и for
 $i = 0;
 while ($i < 5) {
     echo $i++;
-}; // Prints "01234"
+}; // печатает "01234"
 
 echo "\n";
 
 $i = 0;
 do {
     echo $i++;
-} while ($i < 5); // Prints "01234"
+} while ($i < 5); // печатает "01234"
 
 echo "\n";
 
 for ($x = 0; $x < 10; $x++) {
     echo $x;
-} // Prints "0123456789"
+} // печатает "0123456789"
 
 echo "\n";
 
@@ -320,7 +325,7 @@ $wheels = ['bicycle' => 2, 'car' => 4];
 // Циклы foreach могут обходить массивы
 foreach ($wheels as $wheel_count) {
     echo $wheel_count;
-} // Prints "24"
+} // Напечатает "24"
 
 echo "\n";
 
@@ -334,17 +339,17 @@ echo "\n";
 $i = 0;
 while ($i < 5) {
     if ($i === 3) {
-        break; // Exit out of the while loop
+        break; // выйти из цикла while
     }
     echo $i++;
-} // Prints "012"
+} // Напечатает "012"
 
 for ($i = 0; $i < 5; $i++) {
     if ($i === 3) {
-        continue; // Skip this iteration of the loop
+        continue; // пропустить текущую итерацию цикла
     }
     echo $i;
-} // Prints "0124"
+} // печатает "0124"
 
 
 /********************************
@@ -359,7 +364,7 @@ function my_function () {
 echo my_function(); // => "Hello"
 
 // Правильное имя функции начинается с буквы или символа подчеркивания
-// и состоит из букв, цифр или знаков подчеркивания.
+// и состоит из букв, цифр или символов подчеркивания.
 
 function add ($x, $y = 1) { // $y по умолчанию равно 1
   $result = $x + $y;
@@ -369,7 +374,7 @@ function add ($x, $y = 1) { // $y по умолчанию равно 1
 echo add(4); // => 5
 echo add(4, 2); // => 6
 
-// $result недоступна за пределами функции
+// $result недоступен за пределами функции
 // print $result; // Выдает предупреждение
 
 // Начиная с PHP 5.3 вы можете объявлять анонимные функции:
@@ -402,27 +407,25 @@ echo $function_name(1, 2); // => 3
 
 
 /********************************
- * Includes
+ * Включения
  */
 
 <?php
 // PHP код внутри включаемого файла должен начинаться с тега PHP.
 
 include 'my-file.php';
-// Код в файле my-file.php теперь доступен в текущем в текущем пространстве имен.
-// Если файл не удалось включить, будет выдано предупреждение.
+// Код в файле my-file.php теперь доступен в текущем пространстве имен.
+// Если файл не удалось подключить, то будет выдано предупреждение.
 
 include_once 'my-file.php';
-// Если код в файле my-file.php уже был включен, он не будет включен повторно.
-// Это предотвращает ошибку повторного включения файла.
+// Если код в файле my-file.php уже был подключен, он не будет подключен повторно.
+// Это предотвращает ошибку повторного подключения файла.
 
 require 'my-file.php';
 require_once 'my-file.php';
 
-// Same as include(), except require() will cause a fatal error if the
-// file cannot be included.
 // Действует также как и include(), но если файл не удалось подключить,
-// функция выдает неисправимую ошибку
+// функция выдает фатальную ошибку
 
 // Содержимое файла my-include.php:
 <?php
@@ -452,19 +455,19 @@ class MyClass
 
     static $staticVar   = 'static';
 
-    // Properties must declare their visibility
+    // Свойства объявляются с указанием их видимости
     public $property    = 'public';
     public $instanceProp;
-    protected $prot = 'protected'; // Accessible from the class and subclasses
-    private $priv   = 'private';   // Accessible within the class only
+    protected $prot = 'protected'; // Свойство доступно только потомкам и самому классу
+    private $priv   = 'private';   // Свойство доступно только самому классу
 
-    // Create a constructor with __construct
+    // Конструктор описывается с помощью __construct
     public function __construct($instanceProp) {
-        // Access instance variables with $this
+        // Доступ к эземпляру класса с помощью $this
         $this->instanceProp = $instanceProp;
     }
 
-    // Methods are declared as functions inside a class
+    // Методы объявляются как функции принадлежащие классу
     public function myMethod()
     {
         print 'MyClass';
@@ -484,7 +487,7 @@ echo MyClass::MY_CONST;    // Выведет 'value';
 echo MyClass::$staticVar;  // Выведет 'static';
 MyClass::myStaticMethod(); // Выведет 'I am static';
 
-// Новый экземпляр класса используя new
+// Создание нового экземпляра класса используя new
 $my_class = new MyClass('An instance property');
 
 // Если аргументы отсутствуют, можно не ставить круглые скобки
@@ -502,7 +505,7 @@ class MyOtherClass extends MyClass
         echo $this->prot;
     }
 
-    // Override a method
+    // Переопределение родительского метода
     function myMethod()
     {
         parent::myMethod();
@@ -595,7 +598,7 @@ class SomeOtherClass implements InterfaceOne, InterfaceTwo
  * Трейты
  */
 
-// Трейты появились в PHP 5.4.0 и объявляются при помощи ключевого слова trait
+// Трейты появились в PHP 5.4 и объявляются при помощи ключевого слова trait
 
 trait MyTrait
 {
@@ -611,7 +614,7 @@ class MyTraitfulClass
 }
 
 $cls = new MyTraitfulClass();
-$cls->myTraitMethod(); // Prints "I have MyTrait"
+$cls->myTraitMethod(); // Напечатает "I have MyTrait"
 
 
 /********************************
@@ -657,7 +660,10 @@ $cls = new SomeOtherNamespace\MyClass();
 ```
 
 ## Смотрите также:
-Посетите страницу [официальной документации PHP](http://www.php.net/manual/) для справки. 
+Посетите страницу [официальной документации PHP](http://www.php.net/manual/) для справки.
+
 Если вас интересуют полезные приемы использования PHP посетите [PHP The Right Way](http://www.phptherightway.com/).
+
 Если вы раньше пользовались языком с хорошей организацией пакетов, посмотрите [Composer](http://getcomposer.org/).
+
 Для изучения стандартов использования языка посетите PHP Framework Interoperability Group's [PSR standards](https://github.com/php-fig/fig-standards). 
